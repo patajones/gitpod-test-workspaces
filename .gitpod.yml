@@ -1,3 +1,5 @@
+image: gitpod/workspace-full
+
 tasks:
   - name: Maven Package
     init: ./mvnw package
