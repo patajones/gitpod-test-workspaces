@@ -1,0 +1,16 @@
+version: "3.7"
+
+networks:
+  default:
+    name: my-net
+
+services:
+  my-dse:
+    image: datastax/dse-server:6.8.14
+    container_name: my-dse
+    environment:
+      - DS_LICENSE=accept
+    volumes:
+      - ./dse/config:/config
+    ports:
+      - 9042:9042

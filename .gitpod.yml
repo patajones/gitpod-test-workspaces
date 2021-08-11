@@ -1,0 +1,22 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Maven Package
+    init: ./mvnw package
+  - name: Docker Pull
+    init: docker-compose -f ./devtools/docker-compose.yml pull
+
+github:
+  prebuilds:
+    addCheck: true
+    addComment: true
+    addBadge: true
+
+vscode:
+  extensions:
+    - vscjava.vscode-spring-boot-dashboard
+    - pivotal.vscode-spring-boot
+    - eamodio.gitlens
+    - redhat.java
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-test
