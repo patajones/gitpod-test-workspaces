@@ -1,4 +1,4 @@
-image: gitpod/workspace-full
+image: "gitpod/workspace-full:commit-765b4387c8abd596b82470bbb1544bb37e9054cd"
 
 tasks:
   - name: Maven Package
