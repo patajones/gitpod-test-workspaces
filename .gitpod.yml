@@ -1,8 +1,15 @@
 tasks:
   - name: Maven Package
     init: ./mvnw package
-  #- name: Docker Pull
-  #  init: docker-compose -f ./devtools/docker-compose.yml pull
+  - name: Docker Pull
+    before: |
+       if [[ `runc --version | grep 'runc version 1.0.1'` ]]; then
+         curl -o ~/olderrunc -L https://github.com/opencontainers/runc/releases/download/v1.0.0-rc93/runc.amd64
+         chmod 755 ~/olderrunc
+         sudo cp ~/olderrunc /usr/bin/runc
+         runc --version
+       fi
+    init: docker-compose -f ./devtools/docker-compose.yml pull
 
 vscode:
   extensions:
